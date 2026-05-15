@@ -318,8 +318,18 @@ export default function AboutPage() {
               {TEAM.map((m) => (
                 <div key={m.name} className="glass rounded-2xl p-6 hover:bg-signal-400/[0.04] transition-colors">
                   <div className="flex items-start gap-5">
-                    <div className="h-14 w-14 rounded-full bg-gradient-to-br from-signal-300 to-signal-600 flex items-center justify-center font-mono text-sm font-medium text-ink-950 shrink-0">
-                      {m.initials}
+                    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-signal-300 to-signal-600 flex items-center justify-center">
+                      {m.image ? (
+                        <img 
+                          src={m.image} 
+                          alt={m.name} 
+                          className="h-full w-full object-cover" 
+                        />
+                      ) : (
+                        <span className="font-mono text-xs font-medium text-ink-950 uppercase">
+                          {m.name.charAt(0)}
+                        </span>
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
