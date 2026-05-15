@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #070b14;
+  --bg-card: #0f1729;
+  --bg-card-hover: #16203a;
+  --border: rgba(62, 212, 240, 0.08);
+  --border-strong: rgba(62, 212, 240, 0.18);
+  --text-primary: #f7f5ef;
+  --text-secondary: #9ba8c2;
+  --text-muted: #5d6b85;
+  --signal: #3ed4f0;
+  --signal-dim: rgba(62, 212, 240, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(62, 212, 240, 0.3);
+  color: #f7f5ef;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #070b14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2c4a;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3a5e;
+}
+
+/* Atmospheric noise overlay */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Subtle grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(62, 212, 240, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(62, 212, 240, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.glow-signal {
+  box-shadow: 0 0 0 1px rgba(62, 212, 240, 0.2), 0 0 24px rgba(62, 212, 240, 0.15);
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(15, 23, 41, 0.7), rgba(10, 16, 32, 0.6));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(62, 212, 240, 0.08);
+}
+
+.glass-strong {
+  background: linear-gradient(135deg, rgba(22, 32, 58, 0.8), rgba(15, 23, 41, 0.7));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(62, 212, 240, 0.14);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.font-display {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  font-feature-settings: 'ss01';
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-feature-settings: 'tnum', 'cv11';
+}
+
+/* Dotted divider */
+.dotted {
+  background-image: radial-gradient(rgba(62, 212, 240, 0.25) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Live data ticker shimmer */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+.live-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+/* Score bars / sparkline */
+.sparkline path {
+  vector-effect: non-scaling-stroke;
+}
+
+/* Hide spinner for number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
