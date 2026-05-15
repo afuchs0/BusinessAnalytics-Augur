@@ -5,6 +5,9 @@
 // pre_series_a_employees, people_with_degree_data, pre_series_a_clevel,
 // round_1, share_people_with_any_stem_degree, duration_1.
 
+
+
+
 export type Prediction = "success" | "failure";
 
 export interface MilestoneSignal {
@@ -323,30 +326,35 @@ export const TEAM = [
     role: "Machine Learning Engineering",
     bio: "Drives model architecture and technical implementation, building on 6+ years in software consulting. MSc MTEC at ETH Zürich; BSc Business Informatics at TU Vienna.",
     initials: "AF",
+    image: '/assets/Andi.png',
   },
   {
     name: "Jean Nordmann",
     role: "Data Science Engineering",
     bio: "Owns data processing, cleaning, and leakage-proof pipelines. BSc Computer Science (Communication Systems) at EPFL; pursuing MSc MTEC at ETH Zürich.",
     initials: "JN",
+    image: '/assets/Jean_reframed.png',
   },
   {
     name: "Eleni Ginter",
     role: "Market Strategist",
     bio: "Bridges technical ML outputs and the operational needs of VC analysts. BSc Neuroscience; completing MSc MTEC at ETH Zürich. Sales experience with ETH Entrepreneur Club's InCube.",
     initials: "EG",
+    image: '/assets/EG_Photo.png',
   },
   {
     name: "Hector Lopez",
     role: "Business Strategy",
     bio: "Startup founder, former Business Product Manager at Amazon, strategist at quantum computing firm QCentroid. BSc Physics & Industrial Engineering, UC3M Madrid; MSc MTI at ETH Zürich.",
     initials: "HL",
+    image: '/assets/hector.png',
   },
   {
     name: "Paul Walder",
     role: "Business Development",
     bio: "Strategy consulting and Venture Capital background. BSc Business Informatics from TU Vienna and TU Delft.",
     initials: "PW",
+    image: '/assets/Paul.png',
   },
 ];
 

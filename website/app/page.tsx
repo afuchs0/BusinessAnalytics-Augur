@@ -379,8 +379,18 @@ export default function LandingPage() {
               {TEAM.map((m, i) => (
                 <div key={i} className="glass rounded-2xl p-5 hover:bg-signal-400/[0.04] transition-colors">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="h-11 w-11 rounded-full bg-gradient-to-br from-signal-300 to-signal-600 flex items-center justify-center font-mono text-xs font-medium text-ink-950">
-                      {m.initials}
+                    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-signal-300 to-signal-600 flex items-center justify-center">
+                      {m.image ? (
+                        <img 
+                          src={m.image} 
+                          alt={m.name} 
+                          className="h-full w-full object-cover" 
+                        />
+                      ) : (
+                        <span className="font-mono text-xs font-medium text-ink-950 uppercase">
+                          {m.name.charAt(0)}
+                        </span>
+                      )}
                     </div>
                     <div>
                       <p className="font-display text-bone-50">{m.name}</p>
